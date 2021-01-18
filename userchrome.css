@@ -1,0 +1,278 @@
+/********************************************************************************/
+/* One Dark                                                                     */
+/* Latest Version:  https://github.com/Mehvix/joplin-one-dark                   */
+/* Designed by:     Max Vogel (mehvix)                                          */
+/*                                                                              */
+/* userchrome.css:  For styling the entire Joplin app (except the rendered      */
+/*                  Markdown, which is defined in `userstyle.css`)              */
+/********************************************************************************/
+
+/* Variables */
+
+:root {
+    /* One Dark Values */
+    /* https://github.com/atom/atom/blob/master/packages/one-dark-syntax/styles/colors.less */
+    
+    /* config */
+    --hue: 220;
+    --saturation: 13%;
+    --brightness: 18%;
+    
+    /* monochrome */
+    --mono-1: hsl(var(--hue), 14%, 71%);
+    --mono-2: hsl(var(--hue), 9%, 55%);
+    --mono-3: hsl(var(--hue), 10%, 40%);
+    
+    /* colors */
+    --hue-1: hsl(187, 47%, 55%);
+    --hue-2: hsl(207, 82%, 66%);
+    --hue-3: hsl(286, 60%, 67%);
+    --hue-4: hsl( 95, 38%, 62%);
+    --hue-5: hsl(355, 65%, 65%);
+    --hue-5-2: hsl( 5, 48%, 51%);
+    --hue-6: hsl( 29, 54%, 61%);
+    --hue-6-2: hsl( 39, 67%, 69%);
+    
+    /* base colors */
+    --fg: var(--mono-1);
+    --bg: hsl(var(--hue), var(--saturation), var(--brightness));
+    
+    /* From  https://github.com/Binaryify/OneDark-Pro */
+    --bg2: #21252b;
+    --fg2: #4b5263;
+    --gutter: hsl(var(--fg), 100%, 26%);
+    --guide: hsl(var(--fg), 100%, 15%);
+    --accent: hsl(var(--hue), 100%, 66%);
+    --black: #282c34;
+    --white: #cbd3e2;
+    --red-light: #e06c75;
+    --red-dark: #be5046;
+    --green: #98c379;
+    --yellow-light: #e5c07b;
+    --yellow-dark: #d19a66;
+    --blue: #61afef;
+    --magenta: #c678dd;
+    --cyan: #56b6c2;
+    --grey-comment: #5c6370;
+    
+    
+    /* Font -- Feel free to change to fit your personal preference */
+    --font-sans: "Roboto", sans-serif;
+    --font-mono: "Roboto Mono", monospace;
+    
+    /* Misc. */
+    --transition: 100ms;
+    --bg3: #1d1f23;
+    
+    --lighter-grey: hsla(0, 0%, 95%, 1);
+    --light-grey: hsla(0, 0%, 85%, 1);
+}
+
+/* Base Elements */
+body, a, span:not(::before), span.title {
+    font-family: var(--font-sans) !important;
+    color: var(--mono-1) !important;
+}
+
+
+body * {
+    background-color: var(--bg) !important;
+    color: var(--mono-1) !important;
+}
+
+
+/* Top + side bar */
+div.side-bar, div.header *, div.side-bar>div, div[toggleblock="1"], div.side-bar *, div.folders * {
+    background-color: var(--bg2) !important;
+}
+
+div[toggleblock="1"], div.side-bar > div > div:first-child {
+    height: 2em !important;
+    margin: 0 10% ;
+}
+
+/* Draggable Bar */
+div[draggable][style*="width: 5px"] {
+    opacity: 1 !important;
+    background-color: var(--bg) !important;
+    transition-duration: var(--transition);
+}
+
+div[draggable][style*="width: 5px"] {
+    /* fixes white block at bottom of drag div between side bar and note list */
+    height: 100% !important;
+}
+
+div[draggable][style*="width: 5px"]:hover {
+    background-color: var(--fg) !important;
+    transition-duration: var(--transition);
+}
+
+/* Note list */
+div.item-list, div.item-list.note-list>div.list-item-container, .list-item-container > a > span {
+    background-color: var(--bg) !important;
+    color: var(--mono-1) !important;
+}
+
+/* Top bar */
+div.header {
+    border: 0 !important;
+}
+
+/* Editor Bar */
+div.editor-toolbar, div.editor-toolbar * {
+    background-color: var(--bg) !important;
+    border-radius: .2em;
+}
+
+/* Code View Button */
+a.button[style*="background-color: rgb(229, 229, 229);"] { /* when code view toggled */
+    background-color: var(--bg2) !important;
+    color: var(--mono-3) !important;
+    /* border: 0 !important; */
+    border-top-left-radius: 10%;
+}
+
+/* Scroll bars */
+::-webkit-scrollbar-thumb {
+    background-color: var(--fg2) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--fg) !important;
+}
+
+::-webkit-scrollbar,::-webkit-scrollbar:hover {
+    background-color: var(--bg) !important;
+}
+
+/* Icons */
+a i.fas, div.header > a.button > span.title {
+    color: var(--mono-2) !important;
+    transition-duration: var(--transition);
+}
+
+a:hover i.fas, div.header > a.button > span.title:hover {
+    color: var(--mono-1) !important;
+    transition-duration: var(--transition);
+}
+
+
+/* Search bar */
+input[placeholder="Search..."] {
+    background-color: var(--bg) !important;
+    border-width: 0 !important;
+    color: var(--mono-3) !important;
+    /* max-width: 9ch !important; corresponding to length of placeholder */
+    /* font-size: 90% !important; */
+    font-family: var(--font-mono) !important;
+}
+
+input[placeholder="Search..."]:hover{
+    color: var(--mono-1) !important;
+}
+
+input[placeholder="Search..."]:focus {
+    outline: var(--hue-3) auto 1px !important;
+    color: var(--mono-1) !important;
+    background-color: var(--bg3) !important;
+}
+
+/* Title bar */
+div div div>div>input[placeholder] {
+    background-color: var(--bg2) !important;
+    border-width: 0 !important;
+    color: var(--mono-2) !important;
+    font-family: var(--font-mono) !important;
+}
+
+div div div>div>input[placeholder]:focus {
+    outline: var(--hue-3) auto 1px !important;
+    color: var(--mono-1) !important;
+}
+
+/* Entry Date */
+div>div>input[placeholder] + span {
+    font-weight: 400 !important;
+    font-family: var(--font-mono) !important;
+    color: var(--mono-2) !important;
+    font-size: 15px !important;
+    text-align: right !important;
+    display: block !important;
+    margin: auto 2% auto auto !important;
+    background-color: var(--bg2) !important;
+    padding: 5px 8px !important;
+}
+
+
+div[style="display: flex; flex-direction: row; flex-grow: 1; align-items: center;"] {
+    /* ^search bar parent div */
+    justify-content: flex-end;
+    background-color: var(--bg2);
+}
+
+a[style="font-family: sans-serif; font-size: 12px; line-height: 1.6em; color: rgb(21, 91, 218); text-decoration: underline;"] {
+    /* "Usage" text */
+    display: none;
+}
+
+i.fa-search {
+    justify-content: center;
+    padding-right: .7em;
+}
+
+div[style="display: flex; flex-direction: row; flex-grow: 1; align-items: center;"]>a {
+    width: 1em;
+    padding: 0 .7em !important;
+    margin-left: .2em;
+}
+
+
+
+/* Settings Page */
+/* Todo fix */
+/* div[style*="margin-top: 20px; margin-bottom: 20px; border-top-width: 0px;"]{
+    background-color: var(--fg2) !important;
+    color: var(--mono-1) !important;
+} */
+
+
+/* Sync button */
+a.synchronize-button {
+    background-color: var(--bg3) !important;
+    transition-duration: var(--transition) !important;
+    margin: 5px !important;
+}
+
+a.synchronize-button:hover {
+    background-color: var(--fg2) !important;
+    transition-duration: var(--transition) !important;
+}
+
+i.fa-sync-alt {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+div.side-bar > div:last-child > div {
+    text-align: center;
+    height: fit-content !important;
+    margin-bottom: 3% !important;
+}
+
+/* Warning Div */
+/* todo fix -- selector broke */
+[style="background: rgb(255, 208, 141); font-family: sans-serif; padding: 10px; font-size: 12px; margin-top: 5px; margin-bottom: 5px;"] {
+    background-color: var(--hue-5) !important;
+    color: seashell;
+}
+
+
+
+/* Editor */
+.ace-chaos .ace_marker-layer .ace_selection     {
+    border: 0;
+    background-color: var(--bg);
+}
+
+
