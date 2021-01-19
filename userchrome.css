@@ -19,10 +19,14 @@
     --brightness: 18%;
     
     /* monochrome */
-    --mono-1: hsl(var(--hue), 14%, 71%);
-    --mono-2: hsl(var(--hue), 9%, 55%);
-    --mono-3: hsl(var(--hue), 10%, 40%);
-    
+    --mono-0: #e2ebfd;
+    --mono-1: #abb2bf;
+    --mono-2: #9ea6b6;
+    --mono-3: #5c6370;
+
+    --lighter-grey: #f2f2f2;
+    --light-grey: #d9d9d9;
+
     /* colors */
     --hue-1: hsl(187, 47%, 55%);
     --hue-2: hsl(207, 82%, 66%);
@@ -35,102 +39,139 @@
     
     /* base colors */
     --fg: var(--mono-1);
-    --bg: hsl(var(--hue), var(--saturation), var(--brightness));
-    
-    /* From  https://github.com/Binaryify/OneDark-Pro */
-    --bg2: #21252b;
     --fg2: #4b5263;
+
+    --bg-light: #282c34;
+    --bg-dark: #21252b;
+    --bg-darker: #1d1f23;
+
     --gutter: hsl(var(--fg), 100%, 26%);
     --guide: hsl(var(--fg), 100%, 15%);
-    --accent: hsl(var(--hue), 100%, 66%);
-    --black: #282c34;
-    --white: #cbd3e2;
-    --red-light: #e06c75;
-    --red-dark: #be5046;
-    --green: #98c379;
-    --yellow-light: #e5c07b;
-    --yellow-dark: #d19a66;
-    --blue: #61afef;
-    --magenta: #c678dd;
-    --cyan: #56b6c2;
-    --grey-comment: #5c6370;
-    
+    --accent: hsl(var(--hue), 100%, 66%);    
     
     /* Font -- Feel free to change to fit your personal preference */
     --font-sans: "Roboto", sans-serif;
     --font-mono: "Roboto Mono", monospace;
+
+    --font-size: 13px;
+    --icon-size: var(--font-size);
+
+    --font-weight-light: 200;
+    --font-weight-base: 400;
+    --font-weight-bold: 500;
+    --font-line-height: 1.3em;
+
     
     /* Misc. */
     --transition: 100ms;
-    --bg3: #1d1f23;
-    
-    --lighter-grey: hsla(0, 0%, 95%, 1);
-    --light-grey: hsla(0, 0%, 85%, 1);
 }
 
 /* Base Elements */
-body, a, span:not(::before), span.title {
+* {
     font-family: var(--font-sans) !important;
+    font-weight: var(--font-weight-base) !important;
+    line-height: var(--font-line-height) !important;
+    color: var(--mono-1) !important;
+}
+
+body, [style*="background-color: rgb(255, 255, 255);"], [style*="background: rgb(255, 255, 255);"],
+[style*="background-color: #ffffff"], [style*="background: #ffffff"] {
+    background-color: var(--bg-light) !important;
+}
+
+/* tags */
+.tag-list > [style*="rgb(244, 245, 246)"] {
+    background-color: var(--hue-3) !important;
+    color: var(--mono-0) !important;
+}
+
+/* notebook color */
+[style*="background-color: #2D6BDC"] {
+    background-color: var(--hue-2) !important;
+}
+
+/* options sidebar */
+div#react-root > div > [style="display: flex; flex-direction: row;"] > div:first-of-type {
+    background-color: var(--bg-dark) !important;
+}
+
+/* options main */
+div#react-root > div > [style="display: flex; flex-direction: row;"] > div:nth-of-type(2) * {
+    background-color: var(--bg-light) !important;
+}
+
+/* todo add hover? */
+div#react-root > div > [style="display: flex; flex-direction: row;"] > div:nth-of-type(2) button,
+div#react-root > div > [style="display: flex; flex-direction: row;"] > div:nth-of-type(2) select,
+div#react-root > div > [style="display: flex; flex-direction: row;"] > div:nth-of-type(2) input,
+div#react-root > div > [style="display: flex; flex-direction: row;"] > div:nth-of-type(2) button span {
+    background-color: var(--bg-dark) !important;
+    color: var(--mono-1)
+}
+
+/* todo mess w these? */
+/* buttons w icons */
+.fa, .far, .fas {
+    font-weight: 900 !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-size: var(--icon-size) !important;
+    background: none !important;
+}
+
+a.button:hover, a.button:hover *, button[title="New to-do"]:hover, button[title="New note"]:hover, button[title="New to-do"]:hover *, button[title="New note"]:hover * {
+    background-color: var(--hue-2) !important;
+    color: var(--mono-0) !important;
+    transition: var(--transition);
+}
+
+a.button, a.button *, button[title="New to-do"], button[title="New note"], button[title="New to-do"] *, button[title="New note"] *  {
+    background-color: inherit;
     color: var(--mono-1) !important;
 }
 
 
-body * {
-    background-color: var(--bg) !important;
-    color: var(--mono-1) !important;
+/* https://discourse.joplinapp.org/t/share-your-css/1730/169 */
+/* Remove Borders on Everything */
+div, input, a, button, select, div::before {
+	border: 0px !important;
 }
 
-
-/* Top + side bar */
-div.side-bar, div.header *, div.side-bar>div, div[toggleblock="1"], div.side-bar *, div.folders * {
-    background-color: var(--bg2) !important;
+/* Fix Input Mode Toolbar Item To Work Without Border */
+.tox-tbtn div {
+	height: 26px !important;
+	border-radius: 4px !important;
 }
 
-div[toggleblock="1"], div.side-bar > div > div:first-child {
-    height: 2em !important;
-    margin: 0 10% ;
+.fab {
+	top: 5px !important;
+	font-size: 17px !important;
 }
 
-/* Draggable Bar */
-div[draggable][style*="width: 5px"] {
-    opacity: 1 !important;
-    background-color: var(--bg) !important;
-    transition-duration: var(--transition);
+.fas {
+	top: 5px !important;
+	font-size: 15px !important;
 }
 
-div[draggable][style*="width: 5px"] {
-    /* fixes white block at bottom of drag div between side bar and note list */
+/* Fix 'Add or Remove Tabs' opacity background */
+[style*="z-index: 9999"][style*="background-color: rgba(0, 0, 0, 0.6)"] {
     height: 100% !important;
+    width: 100% !important;
 }
 
-div[draggable][style*="width: 5px"]:hover {
-    background-color: var(--fg) !important;
-    transition-duration: var(--transition);
+
+/* Make Input and Select Elements the Same Height as Buttons */
+input, select {
+	height: 26px !important;
 }
 
-/* Note list */
-div.item-list, div.item-list.note-list>div.list-item-container, .list-item-container > a > span {
-    background-color: var(--bg) !important;
-    color: var(--mono-1) !important;
+/* disabled buttons */
+a.button.disabled {
+    opacity: 0.3 !important;
 }
 
-/* Top bar */
-div.header {
-    border: 0 !important;
-}
-
-/* Editor Bar */
-div.editor-toolbar, div.editor-toolbar * {
-    background-color: var(--bg) !important;
-    border-radius: .2em;
-}
-
-/* Code View Button */
-a.button[style*="background-color: rgb(229, 229, 229);"] { /* when code view toggled */
-    background-color: var(--bg2) !important;
-    color: var(--mono-3) !important;
-    /* border: 0 !important; */
-    border-top-left-radius: 10%;
+/* remove border from plugin iframes */
+div.resizableLayoutItem iframe {
+    border-bottom: none !important;
 }
 
 /* Scroll bars */
@@ -138,27 +179,80 @@ a.button[style*="background-color: rgb(229, 229, 229);"] { /* when code view tog
     background-color: var(--fg2) !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--fg) !important;
+::-webkit-scrollbar {
+    background-color: var(--gutter) !important;
+    /* todo change to background of notes */
 }
-
-::-webkit-scrollbar,::-webkit-scrollbar:hover {
-    background-color: var(--bg) !important;
-}
-
-/* Icons */
-a i.fas, div.header > a.button > span.title {
-    color: var(--mono-2) !important;
-    transition-duration: var(--transition);
-}
-
-a:hover i.fas, div.header > a.button > span.title:hover {
-    color: var(--mono-1) !important;
-    transition-duration: var(--transition);
+  
+/* todo what does this do? */
+.noteTextViewer {
+    border-left: 1px solid var(--accent) !important;
 }
 
 
-/* Search bar */
+/* Side bar */
+div.rli-sideBar > div > div, .rli-root > .rli-sideBar {
+    background-color: var(--bg-dark) !important;
+}
+
+
+.side-bar .folders .list-item-container:hover {
+    background-color: var(--fg2) !important;
+    transition: var(--transition) !important;
+}
+
+
+/* Sync button */
+.rli-sideBar .side-bar > div:last-of-type button {
+    background-color: var(--bg-darker) !important;
+    transition: var(--transition);
+}
+
+.rli-sideBar .side-bar > div:last-of-type button:hover, .rli-sideBar .side-bar > div:last-of-type button:hover * {
+    background-color: var(--hue-5) !important;
+    transition: var(--transition);
+    color: var(--mono-0) !important;
+}
+
+/* removes border between side bar and note list */
+.rli-root > .rli-sideBar > div {
+    width: 100% !important;
+}
+
+
+/* Note list */
+.rli-noteList, .rli-noteList > div {
+	background-color: var(--bg-light) !important;
+}
+
+div.item-list.note-list .list-item-container:hover {
+    background-color: var(--fg2) !important;
+    transition: var(--transition);
+}
+
+div.item-list.note-list {
+    background-color: var(--bg-light);
+}
+
+/* border between notes and editor */
+.rli-noteList {
+    border-right: 4px solid var(--bg-dark) !important;
+}
+
+/* todo fix */
+/* selected open note */
+.gMzoUi, .jCscHS
+/* search open note */
+.eBdNXc {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Search */
+.rli-root > .rli-noteList > div > div > div {
+    background-color: var(--bg-light);
+}
+
+
 input[placeholder="Search..."] {
     background-color: var(--bg) !important;
     border-width: 0 !important;
@@ -166,113 +260,114 @@ input[placeholder="Search..."] {
     /* max-width: 9ch !important; corresponding to length of placeholder */
     /* font-size: 90% !important; */
     font-family: var(--font-mono) !important;
-}
-
-input[placeholder="Search..."]:hover{
-    color: var(--mono-1) !important;
+    transition: var(--transition);
 }
 
 input[placeholder="Search..."]:focus {
     outline: var(--hue-3) auto 1px !important;
     color: var(--mono-1) !important;
     background-color: var(--bg3) !important;
+    transition: var(--transition);
 }
 
-/* Title bar */
-div div div>div>input[placeholder] {
-    background-color: var(--bg2) !important;
-    border-width: 0 !important;
-    color: var(--mono-2) !important;
+/* Selects `No notes in here. Create one by clicking on "New note".` */
+div[style="padding: 10px; font-size: 12px; color: rgb(50, 55, 63); background-color: rgb(255, 255, 255); font-family: Roboto;"] {
+    background-color: var(--bg-light) !important;
+}
+
+/* todo add */
+/* title */
+div.rli-editor > div > div > div > div > input {
+    background: var(--bg-dark) !important;
     font-family: var(--font-mono) !important;
 }
 
-div div div>div>input[placeholder]:focus {
-    outline: var(--hue-3) auto 1px !important;
-    color: var(--mono-1) !important;
+/* editor */
+.rli-editor {
+    background-color: var(--bg-light) !important;
 }
 
-/* Entry Date */
-div>div>input[placeholder] + span {
-    font-weight: 400 !important;
-    font-family: var(--font-mono) !important;
-    color: var(--mono-2) !important;
-    font-size: 15px !important;
-    text-align: right !important;
-    display: block !important;
-    margin: auto 2% auto auto !important;
-    background-color: var(--bg2) !important;
-    padding: 5px 8px !important;
+.rli-editor > div > div:empty {
+    background-color: var(--bg-light) !important;
+    opacity: 1 !important;
 }
 
 
-div[style="display: flex; flex-direction: row; flex-grow: 1; align-items: center;"] {
-    /* ^search bar parent div */
-    justify-content: flex-end;
-    background-color: var(--bg2);
+.rli-editor .editor-toolbar {
+    background-color: var(--bg-light) !important;
 }
 
-a[style="font-family: sans-serif; font-size: 12px; line-height: 1.6em; color: rgb(21, 91, 218); text-decoration: underline;"] {
-    /* "Usage" text */
-    display: none;
+.CodeMirror-scroll {
+    width: 100% !important;
+    background-color: var(--bg-light) !important;
+    color: var(--mono-0) !important;
 }
 
-i.fa-search {
-    justify-content: center;
-    padding-right: .7em;
+.ace_cursor {
+    color: var(--fg) !important;
 }
 
-div[style="display: flex; flex-direction: row; flex-grow: 1; align-items: center;"]>a {
-    width: 1em;
-    padding: 0 .7em !important;
-    margin-left: .2em;
+/* border between editor and render */
+iframe.noteTextViewer {
+    border-left: 2px solid var(--bg-dark) !important
 }
 
-
-
-/* Settings Page */
-/* Todo fix */
-/* div[style*="margin-top: 20px; margin-bottom: 20px; border-top-width: 0px;"]{
-    background-color: var(--fg2) !important;
-    color: var(--mono-1) !important;
-} */
-
-
-/* Sync button */
-a.synchronize-button {
-    background-color: var(--bg3) !important;
-    transition-duration: var(--transition) !important;
-    margin: 5px !important;
+/* prevents double border when render-only */
+div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px none rgb(221, 221, 221);"]> iframe.noteTextViewer{
+    border: 0 !important;
 }
 
-a.synchronize-button:hover {
-    background-color: var(--fg2) !important;
-    transition-duration: var(--transition) !important;
+/* This Rich Text editor has a number of limitations and ... */
+.rli-editor div div div [style*="rgb(255, 208, 141);"]{
+    margin: 6px 12px 12px 12px !important;
+    background-color: var(--bg-dark) !important;
 }
 
-i.fa-sync-alt {
-    background: transparent !important;
-    background-color: transparent !important;
+/* tag-adder div */
+.rli-editor div div div [style*="padding-left: 8px"] {
+    padding-left: 12px !important;
 }
 
-div.side-bar > div:last-child > div {
-    text-align: center;
-    height: fit-content !important;
-    margin-bottom: 3% !important;
+/* note properties */
+.note-property-box {
+    margin: .25em 0 !important;
 }
 
-/* Warning Div */
-/* todo fix -- selector broke */
-[style="background: rgb(255, 208, 141); font-family: sans-serif; padding: 10px; font-size: 12px; margin-top: 5px; margin-bottom: 5px;"] {
+.note-property-box > label {
+    width: 7em !important;
+}
+
+.note-property-box > label::after{
+    content: ": ";
+}
+
+/* new notebook */
+[style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] {
+    width: 200px !important;
+}
+
+[style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] input {
+    background-color: var(--bg-dark) !important;
+    width: auto !important;
+    margin-top: .33em !important;
+}
+
+[style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] label {
+    font-size: 14px !important;
+}
+
+[style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] button, [style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] button * {
+    background-color: var(--bg-dark) !important;
+    color: var(--mono-1);
+    transition: var(--transition);
+}
+
+[style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] button:hover, [style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] button:hover * {
     background-color: var(--hue-5) !important;
-    color: seashell;
+    color: var(--mono-0);
+    transition: var(--transition);
 }
 
-
-
-/* Editor */
-.ace-chaos .ace_marker-layer .ace_selection     {
-    border: 0;
-    background-color: var(--bg);
+[style="background-color: rgb(255, 255, 255); padding: 16px; display: inline-block; max-width: 570.882px; box-shadow: rgba(0, 0, 0, 0.5) 6px 6px 20px;"] [style*="text-align"] {
+    text-align: center !important;
 }
-
-
