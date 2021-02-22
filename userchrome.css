@@ -8,12 +8,9 @@
 /********************************************************************************/
 
 /* TODO LIST 
- * Finish editor coloring
- * > differentiate between variables and start of todo
- * > look into (unused) tags/cases
  * Fix weird boarders  
  * > border on >800px media title
- * Change cursor color
+ * Change cursor color to hue-2
  * Markdown support
  * Selection color fix
  * Sync options page
@@ -471,25 +468,40 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
   border-left: 2px solid cornflowerblue !important;
 }
 
-/* .cm-header-1 {
-    font-size: 1.5em !important;
+.cm-katex-marker-open,
+.cm-katex-marker-close,
+.cm-katex-marker-open~span {
+  color: var(--hue-4) !important;
+}
+
+.cm-header-1 {
+  font-size: 1.5em !important;
 }
 
 .cm-header-2 {
-    font-size: 1.3em !important;
+  font-size: 1.3em !important;
 }
 
 .cm-header-3 {
-    font-size: 1.1em !important;
+  font-size: 1.1em !important;
 }
 
-.cm-header-4, .cm-header-5, .cm-header-6 {
-    font-size: 1em !important;
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-size: 1em !important;
 }
 
-.cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6 {
-    line-height: 1.5em !important;
-} */
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  color: var(--hue-5) !important;
+  line-height: 1.5em !important;
+}
+
 .cm-search-marker {
   background: var(--hue-6-2) !important;
   color: black !important;
@@ -516,10 +528,6 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
   /* The little square between H and V scrollbars */
 }
 
-.cm-s-default .cm-header {
-  color: var(--hue-5) !important;
-}
-
 .cm-strong {
   color: var(--hue-6) !important;
 }
@@ -536,8 +544,8 @@ span.cm-url {
   color: var(--hue-3) !important;
 }
 
-.cm-s-default .cm-quote {
-  color: #090 !important;
+.cm-quote {
+  color: var(--hue-4) !important;
 }
 
 .cm-negative {
@@ -565,101 +573,66 @@ span.cm-url {
   text-decoration: line-through !important;
 }
 
-.cm-s-default .cm-keyword {
+.cm-keyword {
   color: var(--hue-3) !important;
 }
 
-.cm-s-default .cm-atom {
-  color: #219 !important;
+/* for some reason the third indent in a list is under this?? */
+.cm-tab + .cm-tab + * ~ .cm-keyword {
+  color: var(--mono-1) !important;
 }
 
-.cm-s-default .cm-number {
-  color: #164 !important;
+.cm-image {
+  color: var(--hue-4) !important; 
 }
 
-.cm-s-default .cm-def {
+.cm-def {
   color: var(--hue-2) !important;
 }
 
-.cm-s-default .cm-variable,
-.cm-s-default .cm-punctuation,
-.cm-s-default .cm-operator {
+.cm-operator {
+  color: var(--hue-1) !important;
+}
+
+.cm-variable {
   color: var(--hue-2) !important;
 }
 
-/* selects dash in lists */
-.cm-s-default span > .cm-variable-2:first-child,
-.cm-s-default span > .cm-variable-3:nth-child(2) {
+/* dot + slash in list */
+.cm-variable-2,
+.cm-variable-3,
+.cm-tab + .cm-tab + .cm-keyword {
   color: var(--hue-5) !important;
 }
 
-/* crossed box */
-.cm-s-default .cm-property {
-  color: var(--hue-6) !important;
+/* contents of list */
+.cm-variable-2 + .cm-property + .cm-variable-2,
+.cm-variable-3 + .cm-property + .cm-variable-3,
+.cm-variable-2 + .cm-meta + .cm-variable-2,
+.cm-variable-3 + .cm-meta + .cm-variable-3 {
+  color: var(--mono-1) !important;
 }
 
-.cm-s-default .cm-variable-2:last-child,
-.cm-s-default .cm-variable-3:last-child {
-  color: inherit !important;
+/* checked box */
+.cm-property {
+  color: var(--hue-2) !important;
 }
 
-.cm-s-default .cm-variable-3,
-.cm-s-default .cm-type {
-  color: var(--hue-4) !important;
-}
-
-/* todo this could be refined */
-.cm-s-default .cm-comment {
+.cm-comment {
   color: var(--mono-3) !important;
   font-style: italic !important;
 }
 
-.cm-s-default .cm-string {
+.cm-string {
   color: var(--hue-4) !important;
 }
 
-.cm-s-default .cm-string-2 {
-  color: var(--hue-6) !important;
-}
-
-.cm-s-default .cm-meta {
-  color: var(--mono-2) !important;
-}
-
-.cm-s-default .cm-qualifier {
-  color: var(--mono-2) !important;
-}
-
-.cm-s-default .cm-builtin {
-  color: var(--hue-3) !important;
-}
-
-.cm-s-default span.cm-bracket {
-  color: var(--mono-2) !important;
-}
-
-.cm-s-default .cm-tag {
+.cm-tag {
   color: var(--hue-5) !important;
 }
 
-.cm-s-default .cm-attribute {
-  color: #00c !important;
-}
-
-.cm-s-default .cm-hr {
-  color: #999 !important;
-}
-
-.cm-s-default .cm-link {
-  color: #00c !important;
-}
-
-.cm-s-default .cm-error {
-  color: #f00 !important;
-}
-
-.cm-invalidchar {
-  color: #f00 !important;
+.cm-bracket {
+  color: var(--mono-1) !important;
 }
 
 /* Default styles for common addons */
