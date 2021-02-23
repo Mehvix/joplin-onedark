@@ -577,10 +577,6 @@ span.cm-url {
   color: var(--hue-3) !important;
 }
 
-/* for some reason the third indent in a list is under this?? */
-.cm-tab + .cm-tab + * ~ .cm-keyword {
-  color: var(--mono-1) !important;
-}
 
 .cm-image {
   color: var(--hue-4) !important; 
@@ -602,15 +598,16 @@ span.cm-url {
 .cm-variable-2,
 .cm-variable-3,
 .cm-tab + .cm-tab + .cm-keyword {
-  color: var(--hue-5) !important;
+  color: var(--hue-6-2) !important;
 }
 
 /* contents of list */
 .cm-variable-2 + .cm-property + .cm-variable-2,
 .cm-variable-3 + .cm-property + .cm-variable-3,
 .cm-variable-2 + .cm-meta + .cm-variable-2,
-.cm-variable-3 + .cm-meta + .cm-variable-3 {
-  color: var(--mono-1) !important;
+.cm-variable-3 + .cm-meta + .cm-variable-3,
+.cm-tab + .cm-tab + * ~ .cm-keyword /* for some reason the third indent in a list is under this?? */ {
+  color: var(--hue-6-2) !important;
 }
 
 /* checked box */
