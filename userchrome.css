@@ -8,18 +8,6 @@
 /********************************************************************************/
 
 /* TODO LIST 
- * write bash script to pull working conf to code folder
- * fix bold order (bold doesn't work in a list)
- * fix formatting for the following:
-	```
-	#1:
-	a.) ---
-	b.) ---
-	i.  ---
-	ii. ---
-	c.) ---
-	```
- * make ` not italicize text
  * make latex ($$) not change following text (if possible)
  * Fix weird boarders  
  * > border on >800px media title
@@ -28,6 +16,8 @@
  * Selection color fix
  * Sync options page
  * Fix other commented todo's
+ * change strong color and katex colors
+ * button hover
  *
  *
  * Post on Joplin boards
@@ -73,7 +63,7 @@
     --accent: hsl(var(--hue), 100%, 66%);
 
     /* font */
-    --font-sans: "PT Serif", sans-serif;
+    --font-sans: "PT Sans", sans-serif;
     --font-mono: "PT Mono", monospace;
     --font-size: 13px;
     --icon-size: var(--font-size);
@@ -126,12 +116,35 @@ div#react-root
 }
 
 /* options main */
+/* todo add exception for plugin toggler */
 div#react-root
     > div
     > [style="display: flex; flex-direction: row;"]
     > div:nth-of-type(2)
     * {
     background-color: var(--bg-dark) !important;
+}
+
+/* setting plugin header */
+div[class="sc-fzqAui cFptvu"] {
+    background-color: var(--bg-darker) !important;
+    color: var(--mono-0) !important;
+    font-size: 16px;
+    border: none !important;
+}
+
+/* warning sign */
+div[style*="background-color: rgb(1, 63, 116)"] {
+    background-color: var(--hue-5) !important;
+    color: var(--mono-0) !important;
+    border-radius: 3px;
+}
+
+/* restart text */
+div[style*="background-color: rgb(1, 63, 116)"]
+    a[style*="color: rgb(166, 166, 255)"] {
+    color: var(--mono-0) !important;
+    font-weight: 150%;
 }
 
 /* todo add hover? */
@@ -192,6 +205,11 @@ button[title="New note"] * {
     color: var(--mono-1) !important;
 }
 
+button[class="sc-fzomME hjqAGi"] {
+    border: 1px solid rgba(221, 221, 221, 0.6) !important;
+    border-radius: 3px;
+}
+
 /* Fix 'Add or Remove Tabs' opacity background */
 [style*="z-index: 9999"][style*="background-color: rgba(0, 0, 0, 0.6)"] {
     height: 100% !important;
@@ -230,8 +248,19 @@ div.rli-sideBar > div > div,
     background-color: var(--bg-dark) !important;
 }
 
-.side-bar .folders .list-item-container:hover {
-    background-color: var(--fg2) !important;
+/* active tab in sidebar */
+div[class~="xOaMI"],
+div[class~="ccllyV"],
+div[class~="eRzPp"],
+div[class~="jwFCDv"],
+div[class~="dRtIoh"] {
+    background-color: var(--bg-darker) !important;
+}
+
+div.item-list.note-list .list-item-container:hover,
+div[class~="ifkdBL"]:hover .side-bar .folders .list-item-container:hover,
+div.folders div:hover {
+    background-color: var(--bg-light) !important;
     transition: var(--transition) !important;
 }
 
@@ -263,11 +292,6 @@ div.rli-sideBar > div > div,
 .rli-noteList,
 .rli-noteList > div {
     background-color: var(--bg-dark) !important;
-}
-
-div.item-list.note-list .list-item-container:hover {
-    background-color: var(--fg2) !important;
-    transition: var(--transition);
 }
 
 div.item-list.note-list {
@@ -481,12 +505,6 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
     border-left: 2px solid cornflowerblue !important;
 }
 
-.cm-katex-marker-open,
-.cm-katex-marker-close,
-.cm-katex-marker-open ~ span {
-    color: var(--hue-4) !important;
-}
-
 .cm-header-1 {
     font-size: 1.5em !important;
 }
@@ -545,6 +563,12 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
     color: var(--hue-6-2) !important;
 }
 
+.cm-katex-marker-open,
+.cm-katex-marker-close,
+.cm-katex-marker-open {
+    color: var(--hue-4) !important;
+}
+
 .cm-error {
     color: inherit !important;
     background-color: inherit !important;
@@ -555,6 +579,10 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
 .CodeMirror-gutter-filler {
     background-color: white !important;
     /* The little square between H and V scrollbars */
+}
+
+.cm-number {
+    color: var(--hue-1) !important;
 }
 
 .cm-strong {
@@ -629,7 +657,7 @@ span.cm-url {
 
 .cm-comment {
     color: var(--mono-3) !important;
-    font-style: italic !important;
+    /* font-style: italic !important; */
 }
 
 .cm-string {

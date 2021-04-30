@@ -1,2 +1,2 @@
-call copy-to-dev.bat
+call push-to-dev.bat
 call restart.bat
