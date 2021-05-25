@@ -7,67 +7,79 @@
 /********************************************************************************/
 
 /* Variables */
-
 :root {
     /* One Dark Values */
     /* https://github.com/atom/atom/blob/master/packages/one-dark-syntax/styles/colors.less */
-    
+
     /* config */
     --hue: 220;
     --saturation: 13%;
     --brightness: 18%;
-    
+
     /* monochrome */
-    --mono-1: hsl(var(--hue), 14%, 71%);
-    --mono-2: hsl(var(--hue), 9%, 55%);
-    --mono-3: hsl(var(--hue), 10%, 40%);
-    
-    /* colors */
+    --mono-0: #e2ebfd;
+    --mono-1: #abb2bf;
+    --mono-2: #9ea6b6;
+    --mono-3: #5c6370;
+    --lighter-grey: #f2f2f2;
+    --light-grey: #d9d9d9;
+
+    /* hues */
     --hue-1: hsl(187, 47%, 55%);
     --hue-2: hsl(207, 82%, 66%);
     --hue-3: hsl(286, 60%, 67%);
-    --hue-4: hsl( 95, 38%, 62%);
+    --hue-4: hsl(95, 38%, 62%);
     --hue-5: hsl(355, 65%, 65%);
-    --hue-5-2: hsl( 5, 48%, 51%);
-    --hue-6: hsl( 29, 54%, 61%);
-    --hue-6-2: hsl( 39, 67%, 69%);
-    
-    /* base colors */
+    --hue-5-2: hsl(5, 48%, 51%);
+    --hue-6: hsl(29, 54%, 61%);
+    --hue-6-2: hsl(39, 67%, 69%);
+
+    /* colors */
     --fg: var(--mono-1);
-    --bg: hsl(var(--hue), var(--saturation), var(--brightness));
-    
-    /* From  https://github.com/Binaryify/OneDark-Pro */
-    --bg2: #21252b;
     --fg2: #4b5263;
+    --bg-light: #282c34;
+    --bg-dark: #21252b;
+    --bg-darker: #1d1f23;
     --gutter: hsl(var(--fg), 100%, 26%);
     --guide: hsl(var(--fg), 100%, 15%);
     --accent: hsl(var(--hue), 100%, 66%);
-    --black: #282c34;
-    --white: #cbd3e2;
-    --red-light: #e06c75;
-    --red-dark: #be5046;
-    --green: #98c379;
-    --yellow-light: #e5c07b;
-    --yellow-dark: #d19a66;
-    --blue: #61afef;
-    --magenta: #c678dd;
-    --cyan: #56b6c2;
-    --grey-comment: #5c6370;
-    
-    
-    /* Font -- Feel free to change to fit your personal preference */
-    --font-sans: "Roboto", sans-serif;
-    --font-mono: "Roboto Mono", monospace;
-    
-    /* Misc. */
-    --transition: 300ms;
-    --bg3: #1d1f23;
+
+    /* font */
+    --font-sans: "PT Sans", sans-serif;
+    --font-mono: "PT Mono", monospace;
+    --font-size: 13px;
+    --icon-size: var(--font-size);
+    --font-weight-light: 200;
+    --font-weight-base: 400;
+    --font-weight-bold: 500;
+    --font-line-height: 1.3em;
+
+    /* misc. */
+    --transition: 100ms;
 }
 
-/* body, html {
+body,
+html {
     font-family: var(--font-sans) !important;
     font-weight: 300 !important;
-    background-color: var(--bg);
-    color: var(--white);
-} */
+    background-color: var(--bg-light);
+    color: var(--mono-0);
+    margin-top: 0.25em;
+}
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.3em !important;
+}
+
+li {
+    margin-bottom: 0.2em !important;
+}
+
+ul {
+    margin-top: 0.2em !important;
+}

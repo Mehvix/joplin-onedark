@@ -18,8 +18,12 @@
  * Fix other commented todo's
  * change strong color and katex colors
  * button hover
+ * tag text color
+ * triple list indent color (purple -> orange)
+ * settings button colors
  *
  *
+ * get image on github
  * Post on Joplin boards
  * Make PR to AwesomeJoplin repo
  * /
@@ -343,13 +347,13 @@ div[style="padding: 10px; font-size: 12px; color: rgb(50, 55, 63); background-co
     background-color: var(--bg-dark) !important;
 }
 
-/* todo add */
-/* title */
+/* note title */
 div.rli-editor > div > div > div > div > input {
     height: fit-content !important;
     background: var(--bg-dark) !important;
     padding: 4px !important;
     min-height: 0 !important;
+    border-radius: 3px !important;
 }
 
 div.rli-editor > div > div > div > div > input,
@@ -555,11 +559,16 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
 }
 
 /* contents of list */
-.cm-variable-2 + .cm-property + .cm-variable-2,
+/* .cm-variable-2 + .cm-property + .cm-variable-2,
 .cm-variable-3 + .cm-property + .cm-variable-3,
 .cm-variable-2 + .cm-meta + .cm-variable-2,
 .cm-variable-3 + .cm-meta + .cm-variable-3,
-.cm-tab + .cm-tab + * ~ .cm-keyword /* for some reason the third indent in a list is under this?? */ {
+.cm-tab + .cm-tab + * ~ .cm-keyword {
+    color: var(--hue-6-2) !important;
+} */
+
+.cm-keyword + .cm-meta + .cm-keyword,
+.cm-keyword + .cm-property + .cm-keyword {
     color: var(--hue-6-2) !important;
 }
 
@@ -583,14 +592,6 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
 
 .cm-number {
     color: var(--hue-1) !important;
-}
-
-.cm-strong {
-    color: var(--hue-6) !important;
-}
-
-.cm-em {
-    color: var(--hue-3) !important;
 }
 
 .cm-link-text {
@@ -669,6 +670,14 @@ span.cm-url {
 }
 
 .cm-bracket {
+    color: var(--mono-1) !important;
+}
+
+.cm-strong {
+    color: var(--hue-6) !important;
+}
+
+.cm-em {
     color: var(--mono-1) !important;
 }
 
