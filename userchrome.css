@@ -677,9 +677,9 @@ span.cm-url {
     color: var(--hue-6) !important;
 }
 
-.cm-em {
+/* .cm-em {
     color: var(--mono-1) !important;
-}
+} */
 
 /* Default styles for common addons */
 div.CodeMirror span.CodeMirror-matchingbracket {
