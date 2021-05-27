@@ -594,14 +594,6 @@ div[style*="position: relative; display: flex; flex: 1 1 0%; border-left: 1px no
     color: var(--hue-1) !important;
 }
 
-.cm-link-text {
-    color: var(--hue-2) !important;
-}
-
-span.cm-url {
-    color: var(--hue-3) !important;
-}
-
 .cm-quote {
     color: var(--hue-4) !important;
 }
@@ -661,25 +653,14 @@ span.cm-url {
     /* font-style: italic !important; */
 }
 
-.cm-string {
-    color: var(--hue-4) !important;
-}
-
 .cm-tag {
     color: var(--hue-5) !important;
 }
 
 .cm-bracket {
-    color: var(--mono-1) !important;
+    /* color: var(--mono-1) !important; */
+    color: var(--hue-5) !important;
 }
-
-.cm-strong {
-    color: var(--hue-6) !important;
-}
-
-/* .cm-em {
-    color: var(--mono-1) !important;
-} */
 
 /* Default styles for common addons */
 div.CodeMirror span.CodeMirror-matchingbracket {
@@ -701,4 +682,24 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .cm-searching {
     background-color: #ffa !important;
     background-color: rgba(255, 255, 0, 0.4) !important;
+}
+
+.cm-strong {
+    color: var(--hue-6) !important;
+}
+
+.cm-em {
+    color: var(--hue-3) !important;
+}
+
+.cm-link-text {
+    color: var(--hue-2) !important;
+}
+
+.cm-string {
+    color: var(--hue-4) !important;
+}
+
+.cm-url {
+    color: var(--hue-3) !important;
 }

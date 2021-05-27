@@ -7,6 +7,8 @@ This is a place to see examples of how the formatted text will look.
 ### Which might contain some subheadings
 Paragraph text `with code highlighting` Duis aute irure **bold** and _italic_ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
 
+
+
 *[Popup!]: this is a popup
 Popup! 
 
