@@ -14,3 +14,9 @@ Joplin uses [CodeMirror](https://codemirror.net/), so tags prefaced by `.cm` sho
 -   Under `Custom stylesheet for rendered Markdown`, click `Edit` and copy in the contents of [userstyle.css](userstyle.css)
 -   Do the same for `Custom stylesheet for Joplin-wide app styles` with the contents of [userchrome.css](userchrome.css)
 -   Restart (Either with killing Joplin in task manager or through the taskbar process list, then re-opening)
+
+### Using stow on Linux
+
+```cmd
+$ stow -t ~/.config/joplin-desktop/ css/
+```
