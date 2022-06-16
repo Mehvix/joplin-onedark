@@ -1,0 +1,77 @@
+/********************************************************************************/
+/* One Dark                                                                     */
+/* Latest Version:  https://github.com/Mehvix/joplin-one-dark                   */
+/* Created by:      Max Vogel (mehvix)                                          */
+/*                                                                              */
+/* userchrome.css:  For styling the entire Joplin app (except the rendered      */
+/*                  Markdown, which is defined in `userstyle.css`)              */
+/********************************************************************************/
+
+// TODO LIST
+// - rewrite in sass
+// - style iframe
+//
+// - get image on github
+// - Post on Joplin boards
+// - Make PR to AwesomeJoplin repo
+
+@use '_onedark' as *
+
+$plus: ".sidebar > div > div:first-child > div:first-child + button"
+
+div.rli-root
+    & *,
+    & div, // todo minimize
+    & a
+        color: $mono-1
+        background: $bg-dark
+
+        button:not(#{$plus}):hover, button:hover span
+            color: $mono-3 !important
+            background: $hue-6-2
+            transition-duration: $transition
+
+        button span
+            color: $mono-1 !important
+
+        #{$plus} span
+            padding: 3px
+            border-radius: 2px
+
+    .rli-editor, .rli-editor *
+        background: $bg-light
+        color: $mono-1 !important
+
+    div[style*="cursor: row-resize"]:hover,
+    div[style*="cursor: col-resize"]:hover
+        background: $gutter !important
+        transition-duration: $transition
+
+    .note-list-item:hover, .note-list-item:hover *,
+    .list-item-container:hover, .list-item-container:hover *
+        background: $bg-light !important
+        transition-duration: $transition
+
+    input[type='text']
+        color: $mono-2 !important
+
+    .selected, .selected *,
+    input[type='text']
+        background: $bg-darker !important
+
+    .list-item-container::before
+        border-bottom: 1px solid $mono-3 !important
+
+    div[style*="cursor: row-resize"]
+        background: $bg-darker
+
+    div[style*="cursor: col-resize"]
+        background: $bg-dark
+
+    // fixes
+    .editor-toolbar, editor-toolbar *
+        background-clip: content-box
+
+    input[placeholder="Search..."] + button, input[placeholder="Search..."] + button *
+        background: transparent
+// div.config-screen
