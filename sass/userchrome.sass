@@ -20,15 +20,13 @@
 $plus: ".sidebar > div > div:first-child > div:first-child + button"
 
 div.rli-root
-    & *,
-    & div, // todo minimize
-    & a
+    & *
         color: $mono-1
-        background: $bg-dark
+        background-color: $bg-dark
 
         button:not(#{$plus}):hover, button:hover span
             color: $mono-3 !important
-            background: $hue-6-2
+            background-color: $hue-6-2
             transition-duration: $transition
 
         button span
@@ -38,35 +36,56 @@ div.rli-root
             padding: 3px
             border-radius: 2px
 
+    div.tox-toolbar-overlord > div.tox-toolbar__primary
+        background-color: $bg-light !important
+        color: $mono-1 !important
+
     .rli-editor, .rli-editor *
-        background: $bg-light
+        background-color: $bg-light !important
+        color: $mono-1 !important
+
+    div[style*="background: rgb(255, 208, 141)"], div[style*="background: rgb(255, 208, 141)"] *
+        background-color: $hue-5 !important
         color: $mono-1 !important
 
     div[style*="cursor: row-resize"]:hover,
     div[style*="cursor: col-resize"]:hover
-        background: $gutter !important
+        background-color: $gutter !important
         transition-duration: $transition
 
     .note-list-item:hover, .note-list-item:hover *,
     .list-item-container:hover, .list-item-container:hover *
-        background: $bg-light !important
+        background-color: $bg-light !important
         transition-duration: $transition
 
     input[type='text']
         color: $mono-2 !important
 
+    .title-input
+        border-radius: 8px
+        color: $mono-0
+        padding-left: 1ch !important
+
     .selected, .selected *,
     input[type='text']
-        background: $bg-darker !important
+        background-color: $bg-darker !important
 
     .list-item-container::before
         border-bottom: 1px solid $mono-3 !important
 
     div[style*="cursor: row-resize"]
-        background: $bg-darker
+        background-color: $bg-darker
 
     div[style*="cursor: col-resize"]
-        background: $bg-dark
+        background-color: $bg-dark
+
+    .editor-toolbar
+        a:not(.disabled):hover, a:not(.disabled):hover *,
+        button div:hover, button div:hover *
+            background-color: $hue-1 !important
+            color: $mono-0 !important
+            transition-duration: $transition
+            opacity: 1 !important
 
     // fixes
     .editor-toolbar, editor-toolbar *
