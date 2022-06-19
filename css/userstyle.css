@@ -1,1 +1,17 @@
-body,html{font-family:"PT Sans",sans-serif !important;font-weight:300 !important;background-color:#282c34;color:#e2ebfd;margin-top:.25em}h1,h2,h3,h4,h5,h6{margin-bottom:.3em !important}li{margin-bottom:.2em !important}ul{margin-top:.2em !important}
+/* Error: Undefined variable.
+ *    ,
+ * 13 |     font-family: $font-sans !important
+ *    |                  ^^^^^^^^^^
+ *    '
+ *   sass/userstyle.sass 13:18  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 13 \2502      font-family: $font-sans !important\a    \2502                   ^^^^^^^^^^\a    \2575 \a   sass/userstyle.sass 13:18  root stylesheet";
+}

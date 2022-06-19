@@ -19,6 +19,16 @@
 
 $plus: ".sidebar > div > div:first-child > div:first-child + button"
 
+// fonts
+div, span, a, input
+    font-family: $font-mono
+
+span.updated-time-label, [title="Spell checker"], .tag-bar *, .modal-dialog *, .dialog-root *
+    font-family: $font-mono !important
+
+[class^="icon-"], [class*=" icon-"]
+    font-family: 'icomoon' !important
+
 div.rli-root
     & *
         color: $mono-1
@@ -40,7 +50,7 @@ div.rli-root
         background-color: $bg-light !important
         color: $mono-1 !important
 
-    .rli-editor, .rli-editor *
+    div.rli-editor, div.rli-editor *
         background-color: $bg-light !important
         color: $mono-1 !important
 
@@ -61,7 +71,7 @@ div.rli-root
     input[type='text']
         color: $mono-2 !important
 
-    .title-input
+    input.title-input
         border-radius: 8px
         color: $mono-0
         padding-left: 1ch !important
@@ -79,6 +89,21 @@ div.rli-root
     div[style*="cursor: col-resize"]
         background-color: $bg-dark
 
+    div.note-search-bar
+        border-top: none !important
+        & > div
+            padding-left: 1ch
+            padding-left: 4px
+        input
+            border: none
+            padding: 3px
+            padding-left: 4px
+            border-radius: 8px
+
+    .tag-list button
+        background-color: $accent !important
+        color: $mono-0 !important
+
     .editor-toolbar
         a:not(.disabled):hover, a:not(.disabled):hover *,
         button div:hover, button div:hover *
@@ -93,4 +118,156 @@ div.rli-root
 
     input[placeholder="Search..."] + button, input[placeholder="Search..."] + button *
         background: transparent
+
+    div.codeMirrorEditor
+        .cm-header
+            color: $hue-5 !important
+            line-height: 1.5em !important
+
+        // .cm-jn-inline-code
+
+        .cm-search-marker
+            background: $hue-6-2 !important
+            color: black !important
+
+            &-selected
+                background: $hue-6 !important
+                color: #ffffff !important
+
+            &-scrollbar
+                background: $hue-6-2 !important
+
+        // dot + slash in list
+        .cm-variable-2,
+        .cm-variable-3,
+        .cm-tab + .cm-tab + .cm-keyword
+            color: $hue-6-2 !important
+
+        // contents of list
+        // .cm-variable-2 + .cm-property + .cm-variable-2,
+        // .cm-variable-3 + .cm-property + .cm-variable-3,
+        // .cm-variable-2 + .cm-meta + .cm-variable-2,
+        // .cm-variable-3 + .cm-meta + .cm-variable-3,
+        // .cm-tab + .cm-tab + * ~ .cm-keyword
+        //     color: $hue-6-2 !important
+        // }
+
+        .cm-keyword + .cm-meta + .cm-keyword,
+        .cm-keyword + .cm-property + .cm-keyword
+            color: $hue-6-2 !important
+
+        .cm-katex-marker-open,
+        .cm-katex-marker-close,
+        .cm-katex-marker-open
+            color: $hue-4 !important
+
+        .cm-error
+            color: inherit !important
+            background-color: inherit !important
+            border-bottom: 1px dotted #dc322f !important
+
+        .CodeMirror-scrollbar-filler,
+        .CodeMirror-gutter-filler
+            background-color: white !important
+            /* The little square between H and V scrollbars */
+
+        .cm-number
+            color: $hue-1 !important
+
+        .cm-quote
+            color: $hue-4 !important
+
+        .cm-negative
+            color: #d44 !important
+
+        .cm-positive
+            color: #292 !important
+
+        .cm-header,
+        .cm-strong
+            font-weight: bold !important
+
+        .cm-em
+            font-style: italic !important
+
+        .cm-link
+            text-decoration: underline !important
+
+        .cm-strikethrough
+            text-decoration: line-through !important
+
+        .cm-keyword
+            color: $hue-3 !important
+
+        .cm-image
+            color: $hue-4 !important
+
+        .cm-def
+            color: $hue-2 !important
+
+        .cm-operator
+            color: $hue-1 !important
+
+        .cm-variable
+            color: $hue-2 !important
+
+        // checked box
+        .cm-property
+            color: $hue-2 !important
+
+        .cm-comment
+            color: $mono-3 !important
+            // font-style: italic !important;
+
+        .cm-tag
+            color: $hue-5 !important
+
+        .cm-bracket
+            // color: $mono-1 !important;
+            color: $hue-5 !important
+
+        // Default styles for common addons
+        div.CodeMirror span.CodeMirror-matchingbracket
+            color: #0b0 !important
+
+        div.CodeMirror span.CodeMirror-nonmatchingbracket
+            color: #a22 !important
+
+        .CodeMirror-matchingtag
+            background: rgba(255, 150, 0, 0.3) !important
+
+        .CodeMirror-activeline-background
+            background: #e8f2ff !important
+
+        .cm-searching
+            background-color: #ffa !important
+            background-color: rgba(255, 255, 0, 0.4) !important
+
+        .cm-strong
+            color: $hue-6 !important
+
+        .cm-em
+            color: $hue-3 !important
+
+        .cm-link-text
+            color: $hue-2 !important
+
+        .cm-string
+            color: $hue-4 !important
+
+        .cm-url
+            color: $hue-3 !important
+            opacity: 1
+
 // div.config-screen
+div.modal-layer, div.master-password-dialog
+    width: 100% !important
+
+    & *
+        color: $mono-1 !important
+        background-color: $bg-dark !important
+
+    // todo hover
+    button
+        width: fit-content !important
+        background-color: $bg-darker !important
