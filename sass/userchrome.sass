@@ -23,28 +23,46 @@ $plus: ".sidebar > div > div:first-child > div:first-child + button"
 div, span, a, input
     font-family: $font-mono
 
-span.updated-time-label, [title="Spell checker"], .tag-bar *, .modal-dialog *, .dialog-root *
+span.updated-time-label, [title="Spell checker"], .tag-bar *, .modal-dialog *, .dialog-root *, div[style*="font-family: Roboto;"], table *
     font-family: $font-mono !important
 
-[class^="icon-"], [class*=" icon-"]
+[class^="icon-"], [class*=" icon-"], [class^="fa-"]
     font-family: 'icomoon' !important
 
+// base coloring
+*
+    color: $mono-1
+    background-color: $bg-dark
+
+[style*='color: #ffffff'], .sidebar *
+    color: $mono-1 !important
+
+[style*='background-color: rgb(255, 255, 255);']
+    background-color: $bg-dark !important
+
+// default state
 div.rli-root
-    & *
-        color: $mono-1
-        background-color: $bg-dark
+    .rli-noteList > div > div > div
+        background-color: $bg-dark !important
 
-        button:not(#{$plus}):hover, button:hover span
-            color: $mono-3 !important
-            background-color: $hue-6-2
-            transition-duration: $transition
+        button
+            background-color: $bg-darker !important
 
-        button span
-            color: $mono-1 !important
+        input[placeholder="Search..."] + button, input[placeholder="Search..."] + button *
+            background: transparent !important
 
-        #{$plus} span
-            padding: 3px
-            border-radius: 2px
+    button:not(#{$plus}):not([aria-label="Toggle editors"]):hover, button:hover span
+        color: $mono-0 !important
+        background-color: $hue-6-2 !important
+        transition-duration: $transition
+
+    button span
+        background-color: $bg-darker
+        color: $mono-1 !important
+
+    #{$plus} span
+        padding: 3px
+        border-radius: 2px
 
     div.tox-toolbar-overlord > div.tox-toolbar__primary
         background-color: $bg-light !important
@@ -116,10 +134,11 @@ div.rli-root
     .editor-toolbar, editor-toolbar *
         background-clip: content-box
 
-    input[placeholder="Search..."] + button, input[placeholder="Search..."] + button *
-        background: transparent
-
     div.codeMirrorEditor
+        .CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection
+            background-color: black !important
+            opacity: .6 !important
+
         .cm-header
             color: $hue-5 !important
             line-height: 1.5em !important
@@ -169,7 +188,7 @@ div.rli-root
         .CodeMirror-scrollbar-filler,
         .CodeMirror-gutter-filler
             background-color: white !important
-            /* The little square between H and V scrollbars */
+            // The little square between H and V scrollbars
 
         .cm-number
             color: $hue-1 !important
@@ -217,6 +236,7 @@ div.rli-root
 
         .cm-comment
             color: $mono-3 !important
+            border: none !important
             // font-style: italic !important;
 
         .cm-tag
@@ -263,11 +283,20 @@ div.rli-root
 div.modal-layer, div.master-password-dialog
     width: 100% !important
 
-    & *
-        color: $mono-1 !important
-        background-color: $bg-dark !important
+    // & [style='z-index: 9999;display: flex;position: absolute;background-color: transparent !important;top: 0px;left: 0px;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.6);align-items: flex-start;justify-content: center;']
+        // background-color: rgba(0, 0, 0, 0.6) !important
+
+div[style='overflow: auto; color: rgb(50, 55, 63); background-color: rgb(255, 255, 255); font-family: Roboto; height: 784.167px; display: flex; flex-direction: column;'] *, //
+div.modal-layer:not([style*='background-color: rgba(0, 0, 0, 0.6);']), div.master-password-dialog *,
+div[style*='index: 9999'] *
+    color: $mono-1 !important
+    background-color: $bg-dark !important
+
+    a
+        color: $hue-2 !important
 
     // todo hover
     button
+        min-width: unset !important
         width: fit-content !important
         background-color: $bg-darker !important
