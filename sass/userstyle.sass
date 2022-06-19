@@ -29,3 +29,32 @@ li
 
 ul
     margin-top: 0.2em !important
+
+a
+    color: $hue-2
+
+    &[href^=":/"]
+        color: $hue-1
+
+    &[href^="#"]
+        color: $hue-4
+
+// mehvix.com hover
+
+.inline-code
+    padding: 4px
+
+// todo just yoink OD HLJS
+.inline-code,
+.hljs
+    background-color: $bg-dark
+    color: $mono-1
+    border: none
+
+pre.hljs
+    border-radius: 6px
+
+summary:hover,
+.checkbox-wrapper input:hover,
+.checkbox-wrapper label:hover
+    cursor: pointer
