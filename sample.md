@@ -1,16 +1,21 @@
+[toc]
+
+
 # CSS Sample
 This is a place to see examples of how the formatted text will look.
 
+![Cow](http://2.bp.blogspot.com/_sMQsqJIM_z0/TIOfp7F9w0I/AAAAAAAACVo/0hj-bLiKOz0/w1200-h630-p-k-no-nu/sphericalcow_430x300.jpg)
 
 ## Like this header, with a [link](:/1234) for instance
 
 ### Which might contain some subheadings
-Paragraph text `with code highlighting` Duis aute irure **bold** and _italic_ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+Paragraph text `with code highlighting` Duis aute irure **bold** and _italic_ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 
 
 
 *[Popup!]: this is a popup
-Popup! 
+Popup!
+
 
 ```javascript
 var hello = function () {
@@ -31,14 +36,15 @@ this stuff
 
 
 - [x] Things
-	- [ ] That 
-	- [x] I 
-		- [ ] need
-		- [x] To
-			- [ ] Do
-			- [x] Today
-- [ ] Two 
-- [x] More
+	- [ ] That I need
+- [ ] To Do
+- [ ] Today
+
+
+[cal.ics](:/1234)
+[resource types.pdf](:/1234)
+[extensions.py](:/1234)
+[feedback.md](:/1234)
 
 ---
 
@@ -53,7 +59,10 @@ this stuff
 Excepteur ==one thing== sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-![Joplin icon](https://git.io/JenGk)
+```html
+	<h1> A headline here <h1>
+	<p> goes here <p>
+```
 
 1. this
 	2. that
