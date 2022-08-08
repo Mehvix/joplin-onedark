@@ -1,6 +1,6 @@
 /********************************************************************************/
 /* One Dark                                                                     */
-/* Latest Version:  https://github.com/Mehvix/joplin-one-dark                   */
+/* Latest Version:  https://github.com/Mehvix/joplin-onedark                    */
 /* Created by:      Max Vogel (mehvix)                                          */
 /*                                                                              */
 /* userchrome.css:  For styling the entire Joplin app (except the rendered      */
@@ -8,13 +8,13 @@
 /********************************************************************************/
 
 // TODO LIST
-//  - rewrite in sass
 //  - style iframe
 //      - alt: use built in styling, figure out correlation
 //  - misc button & fa-s hover
 //  - fix options screen styling
 //  - fix select styling in multiline code blocks (currently blue, should be black)
 //  - divisor should be non-white
+//  - input[type='text'] styling
 //
 //  - get image on github
 //  - Post on Joplin boards
@@ -71,12 +71,35 @@ button:not(#{$plus})
         background-color: inherit
         color: inherit
 
+div.config-screen
+    & > div  // sidebar
+        background-color: unset !important
+
+        & > div
+            font-size: 14px
+            border: none
+
+        & a i,
+        & a:hover span,
+        & a.hWxWTS span  // selected
+            background-color: unset !important
+
+    & div.gnpWVp * // plugins page
+        background-color: unset !important
+        color: $mono-1 !important
+
+    input[type='text'],
+    input[type='number'],
+    select,
+    button
+        border-color: rgb(134 144 160 / 66%) !important
+        border-radius: 5px !important
+
 // sync status bottom
 div.dEyqmm
     color: $mono-1
     background-color: $bg-dark
 
-// div.config-screen
 div.modal-layer, div.master-password-dialog
     width: 100% !important
 

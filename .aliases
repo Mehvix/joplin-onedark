@@ -1,2 +1,2 @@
 alias k="pidof @joplinapp-desktop | xargs kill -9 ;"
-alias j=" ~/.joplin/Joplin.AppImage --open-dev-tools"
+alias j=" ~/.joplin/Joplin.AppImage --open-dev-tools  --debug --log-level debug"

@@ -16,5 +16,20 @@ Joplin uses [CodeMirror](https://codemirror.net/), so tags prefaced by `.cm` sho
 ### Using GNU stow
 
 ```cmd
-$ stow -t ~/.config/joplin-desktop/ css/
+$ rm ~/.config/joplin-desktop/userchrome.css ~/.config/joplin-desktop/userstyle.css  # delete exising theme files
+$ stow -t ~/.config/joplin-desktop/ css/   # within project directory
 ```
+
+
+### Note Tabs Settings
+
+If using the [Joplin Note Tabs](https://github.com/benji300/joplin-note-tabs) addon, go to `Tools > Options > Note Tabs`
+
+* Background color: `#21252b`
+* Hover Background color: `#282c34`
+* Active background color: `#1d1f23`
+* Infobar background color: `#636d83`
+* Foreground color: `#abb2bf`
+* Active foreground color: `#e2ebfd`
+* Divider color:: `#636d83`
+
