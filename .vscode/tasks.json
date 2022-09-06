@@ -4,25 +4,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Source aliases",
-            "type": "shell",
-            "command": "source .aliases",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
             "label": "Sass compile",
             "type": "shell",
             "command": "sass --watch --no-source-map -s compressed sass/:css/",
             "runOptions": {
-                "runOn": "folderOpen"
+                "runOn": "folderOpen",
+                "instanceLimit": 1,
             },
             "presentation": {
-                "reveal": "never"
-            }
+                "reveal": "never",
+            },
+            "isBackground": true,
         },
     ]
 }

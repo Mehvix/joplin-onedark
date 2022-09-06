@@ -1,0 +1,7 @@
+{
+    "task.allowAutomaticTasks": "on",
+    "terminal.integrated.env.linux": {
+        "ZSH_INIT_COMMAND": "source .aliases"
+        // https://github.com/Mehvix/dots/blob/a150ba965926cb1f6fa0d4ccf3636e6e9bbf5d88/stow/zsh/.zshrc#L168-L173
+    }
+}
