@@ -120,7 +120,7 @@ div.master-password-dialog
         background-color: $bg-darker !important
 
 // default layout div
-div.rli-root
+.rli-root
     div.rli-noteList
 
         & > div > div > div // entry list
@@ -149,9 +149,9 @@ div.rli-root
                     color: $mono-2
                     font-size: 85%
 
-    div.rli-editor, div.rli-editor *
-        background-color: $bg-light !important
-        color: $mono-1 !important
+    .rli-editor, .rli-editor *
+        background-color: $bg-light
+        color: $mono-1
 
         input.title-input
             border-radius: 8px
@@ -238,16 +238,18 @@ div.rli-root
     input[type='text']
         background-color: $bg-darker !important
 
-    div.codeMirrorEditor
+    // div.codeMirrorEditor
+    div.CodeMirror-code
         .CodeMirror-line::selection, .CodeMirror-line span::selection
             background-color: black !important
             opacity: .6 !important
 
+        .cm-tab + span
+            color: $hue-6-2
+
         .cm-header
             color: $hue-5 !important
             line-height: 1.5em !important
-
-        // .cm-jn-inline-code
 
         .cm-search-marker
             background: $hue-6-2 !important
@@ -274,6 +276,8 @@ div.rli-root
         // .cm-tab + .cm-tab + * ~ .cm-keyword
         //     color: $hue-6-2 !important
         // }
+        .cm-meta
+            color: $mono-1
 
         .cm-keyword + .cm-meta + .cm-keyword,
         .cm-keyword + .cm-property + .cm-keyword
@@ -319,8 +323,8 @@ div.rli-root
         .cm-strikethrough
             text-decoration: line-through !important
 
-        .cm-keyword
-            color: $hue-3 !important
+        // .cm-keyword
+            // color: $hue-3 !important
 
         .cm-image
             color: $hue-4 !important
@@ -339,9 +343,32 @@ div.rli-root
             color: $hue-2 !important
 
         .cm-comment
-            color: $mono-3 !important
+            color: $mono-2 !important
             border: none !important
             // font-style: italic !important;
+
+        .cm-jn-inline-code
+            background-color: $bg-dark !important
+            color: $mono-2 !important
+            padding: 2px
+
+        .cm-jn-code-block-background, .cm-jn-code-block
+            background-color: $bg-darker
+
+            & *
+                background-color: inherit
+
+        & > * ~ pre + div > *
+            border-top-left-radius: 5px
+            border-top-right-radius: 5px
+
+        // todo get this working -- select last div (before pre)
+        & > * ~ pre + div ~ :is(div + pre) > *
+            border-bottom-left-radius: 5px
+            border-bottom-right-radius: 5px
+
+        // .cm-jn-code-block-background
+        //     background-color: unset !important
 
         .cm-tag
             color: $hue-5 !important
