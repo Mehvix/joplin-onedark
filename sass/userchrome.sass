@@ -25,6 +25,7 @@
 $transition: ease-in-out 200ms
 $plus: ".sidebar > div > div:first-child > div:first-child + button"
 $sync: "button[class='sc-AxhCb sc-fzoLsD jBRUMO sc-fzpans sc-fzqPZZ dNxtxI']"
+$tags: "a[title='Tags']"
 
 // fonts
 div,
@@ -133,7 +134,7 @@ div.master-password-dialog
         background-color: $bg-darker !important
 
 // default layout div
-.rli-root
+div.rli-root
     div.rli-noteList
 
         & > div > div > div // entry list
@@ -147,12 +148,15 @@ div.master-password-dialog
             input[placeholder="Search..."] + button, input[placeholder="Search..."] + button *
                 background: transparent !important
 
-    div.rli-sideBar
+    div.rli-sideBar // lower sidebar (Notebooks, tag, sync, etc)
         & > div
             width: 100% !important
 
         .list-item-container
-            padding-right: 1ch
+            padding-right: 1.25ch
+
+            &:hover, &:hover *  // ensures consistent hover behavior
+                transition: $transition
 
             a.list-item
                 display: flex
@@ -198,20 +202,9 @@ div.master-password-dialog
         .editor-toolbar, editor-toolbar *
             background-clip: content-box
 
-    button:not(#{$sync}):hover span,
-    button:not(#{$sync}):not(#{$plus}):not([aria-label="Toggle editors"]):hover
-        color: $mono-0 !important
-        background-color: $hue-3 !important
-        opacity: 1 !important
-        transition: $transition
-
     button:not(#{$plus})
         background-color: $bg-darker
-        color: $mono-1 !important
-
-    #{$sync}:hover // sync button
-        color: $mono-3 !important
-        background-color: $hue-6 !important
+        color: $mono-1 // !important
 
     #{$plus} span
         background-color: $bg-darker
@@ -219,6 +212,25 @@ div.master-password-dialog
 
         padding: 4px
         border-radius: 3px
+
+    button:not(#{$sync}):hover span,
+    button:not(#{$sync}):not(#{$plus}):not([aria-label="Toggle editors"]):hover
+        color: $mono-0 !important
+        background-color: $hue-3 !important
+        opacity: 1 !important
+        transition: $transition
+
+    #{$sync}:hover
+        background-color: $hue-6 !important
+        color: $mono-0 !important
+
+        & *
+            color: inherit !important
+
+    #{$tags}:hover, #{$tags}:hover *
+        background-color: $hue-2 !important
+        color: $mono-0 !important
+        transition: $transition
 
     input[type='text']
         color: $mono-2 !important
@@ -234,7 +246,7 @@ div.master-password-dialog
 
     div[style*="cursor: row-resize"],
     div[style*="cursor: col-resize"]
-        background-color: $bg-dark !important
+        background: transparent !important  // don't clip entries
 
         &:hover
             opacity: 0.6
