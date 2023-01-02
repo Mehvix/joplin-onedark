@@ -15,11 +15,11 @@ Joplin uses [CodeMirror](https://codemirror.net/), so tags prefaced by `.cm` sho
 
 ### Copying (Linux)
 
-Must be done after every `git pull` update
-
 ```sh
 $ cp css/* ~/.config/joplin-desktop
 ```
+
+This should be done after every `git pull` update
 
 ### Using GNU stow (Linux)
 
@@ -35,13 +35,13 @@ $ stow -t ~/.config/joplin-desktop/ css/   # within project directory
 
 If using the [Joplin Note Tabs](https://github.com/benji300/joplin-note-tabs) addon, go to `Tools > Options > Note Tabs`
 
-| Setting                  | Value     |
-| ------------------------ | --------- |
-| Background color         | `#21252b` |
-| Hover Background color   | `#282c34` |
-| Active background color  | `#1d1f23` |
-| Infobar background color | `#636d83` |
-| Foreground color         | `#abb2bf` |
-| Active foreground color  | `#e2ebfd` |
-| Divider color:           | `#636d83` |
+| Setting            | Value     |
+| ------------------ | --------- |
+| Background         | `#21252b` |
+| Hover Background   | `#282c34` |
+| Active Background  | `#1d1f23` |
+| Infobar Background | `#636d83` |
+| Foreground         | `#abb2bf` |
+| Active Foreground  | `#e2ebfd` |
+| Divider            | `#636d83` |
 
