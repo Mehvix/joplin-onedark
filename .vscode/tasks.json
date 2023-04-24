@@ -6,7 +6,7 @@
         {
             "label": "Sass compile",
             "type": "shell",
-            "command": "sass --watch --no-source-map -s compressed sass/:css/",
+            "command": "sass --watch --no-source-map sass/:css/",
             "runOptions": {
                 "runOn": "folderOpen",
                 "instanceLimit": 1,

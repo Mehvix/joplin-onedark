@@ -44,6 +44,9 @@ div[style*="font-family: Roboto;"],
 div.CodeMirror *
     font-family: $font-mono !important
 
+[class^="fa"]
+    font-family: 'Font Awesome 5 Free' !important
+
 [class^="icon-"],
 [class*=" icon-"]
     font-family: 'icomoon' !important
@@ -79,7 +82,8 @@ button:not(#{$plus})
     color: $mono-1
     background-color: $bg-darker
 
-    &:hover
+    &:hover,
+    &:hover>span
         color: $mono-0
         // opacity: .75
         background-color: $bg-light
@@ -89,33 +93,173 @@ button:not(#{$plus})
         background-color: inherit
         color: inherit
 
-div.config-screen
-    & > div  // sidebar
-        background-color: unset !important
+div.config-screen  // Options (settings) page
 
-        & > div
-            font-size: 14px
-            border: none
+    & > div:last-of-type > div[style="font-family: Roboto; font-size: 12px; line-height: 1.6em; color: rgb(50, 55, 63); padding: 10px 10px 10px 24px; background-color: rgb(255, 208, 141);"]  // restart bar
+        background-color: $hue-5-2 !important
+        color: $mono-0 !important
+        font-weight: 800
+        font-style: italic
+        text-align: center
 
-        & a i,
-        & a:hover span,
-        & a.hWxWTS span  // selected
+        & > a
             background-color: unset !important
+            color: $hue-2 !important
+            opacity: 1
+            text-decoration: none !important
+            font-family: $font-mono !important
 
-    & div.gnpWVp * // plugins page
-        background-color: unset !important
-        color: $mono-1 !important
 
     input[type='text'],
     input[type='number'],
     select,
     button
-        border-color: rgb(134 144 160 / 66%) !important
-        border-radius: 5px !important
+        border: 2px solid $mono-3 !important
+        font-family: $font-mono !important
+
+
+    & div.dEyqmm  // Options Page, bottom bar
+        background-color: $bg-dark !important
+
+        & button
+            color: $mono-1 !important
+            background-color: $bg-darker !important
+
+            &:hover,
+            &:hover span
+                background-color: inherit !important
+
+    & div.gzoyKc  // sidebar
+        background-color: unset !important
+
+        & a i,
+        & a span
+            background-color: unset
+            color: $mono-2 !important
+
+        & a.hWxWTS,  // selected
+        & a.hWxWTS *
+            color: $mono-0 !important
+            background-color: $bg-darker !important
+
+        & a.hWxWTS:hover,
+        & a.hWxWTS:hover *,
+        & a:hover,
+        & a:hover *
+            color: $mono-0 !important
+            background-color: $bg-light !important
+
+        & div.kiZMXV // plugins title
+            border: none
+            opacity: 1
+            background-color: $bg-darker !important
+            color: $mono-0 !important
+            margin-top: 2em
+            padding: 1.5ch 1ch
+            font-size: 120%
+
+
+    & div.cVMdhB * // plugins page
+        background-color: unset
+        color: $mono-1
+
+        & input[placeholder="Search for plugins..."],
+        & input.hvfpjg
+            background-color: $bg-dark !important
+            color: $mono-1 !important
+
+        & div.fjjhGD
+            &>div:last-of-type * // switches
+                // background-color: initial !important
+                // color: unset !important
+            & div[style*="background-color: rgb(45, 107, 220)"]
+                background-color: $hue-4 !important
+
+    // & &.config-screen-content-wrapper // Keyboard Shortcuts
+    table kbd
+        background-color: $bg-darker !important
+        color: $mono-1 !important
 
 div.modal-layer,
 div.master-password-dialog
     width: 100% !important
+
+
+// ====================================== //
+// View => Change Application Layout View //
+// ====================================== //
+
+// #react-root > div.profile-default > div > div.sc-fzqNJr.eUoFzX > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-7vQGh4tzM7yygIt3xJ6U4h > div.resizableLayoutItem.rli-editor > div > div.sc-fzqBZW
+div.gwrYwU  // "Use the arrows to move the layout items. Press "Escape" to exit."
+    // background-color: transparent !important
+    background-color: $bg-light !important
+    border-radius: 8px
+    font-style: italic
+    border: 2px solid $bg-darker
+
+div.btxyZV    // buttons
+    background-color: $bg-dark !important
+    border-radius: 8px
+    font-style: italic
+    border: 2px solid $bg-darker
+    // background-color: rgba(0,0,0,0.5) !important
+
+#react-root > div.profile-default > div > div.sc-fzqNJr.eUoFzX > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-7vQGh4tzM7yygIt3xJ6U4h > div.resizableLayoutItem.rli-editor > div > div:nth-child(2)
+    z-index: 1
+
+#react-root > div.profile-default > div > div.sc-fzqNJr.eUoFzX > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-7vQGh4tzM7yygIt3xJ6U4h > div.resizableLayoutItem.rli-editor > div > div  // big editor background (transparent element)
+    background-color: rgba(0,0,0,0.5) !important
+    z-index: 2
+
+
+// Console / Commands (CTRL+SHIFT+P) and Everywhere (CTRL+P)
+div.modal-dialog
+    border-radius: 8px
+    background-color: $bg-darker !important
+
+    &>div:first-of-type
+        background-color: $bg-darker !important
+    &>div:first-of-type i,
+    &>div:first-of-type a
+        background-color: transparent !important
+
+
+    div.item-list
+        background-color: $bg-darker
+
+        & > div
+            background-color: $bg-dark !important
+
+            &[style="height: 0px;"]
+                background-color: transparent !important
+
+            &:not([style="height: 0px;"])
+                border-bottom: 1px dashed $mono-1 !important
+
+
+                & span
+                    background-color: transparent
+
+                    &[style*="color: #32373F;"]
+                        color: $mono-1 !important
+
+                &.selected
+                    background-color: $bg-light !important
+                    font-style: italic
+
+                    div[style*="color: rgb(124, 139, 158);"]
+                        color: $mono-0 !important
+
+                    &>div>span
+                        color: $mono-0
+
+                    &>div
+                        background-color: inherit !important
+
+            &:nth-last-child(2)
+                border-bottom: none !important
+                border-radius: 0 0 8px 8px
+
 
 // div[style='overflow: auto; color: rgb(50, 55, 63); background-color: rgb(255, 255, 255); font-family: Roboto; height: 784.167px; display: flex; flex-direction: column;'],
 div.modal-layer:not([style*='background-color: rgba(0, 0, 0, 0.6);']),
@@ -133,6 +277,11 @@ div.master-password-dialog
         width: fit-content !important
         background-color: $bg-darker !important
 
+// Tabs addon
+iframe.fKGdbI
+    border-bottom: none !important
+
+
 // default layout div
 div.rli-root
     div.rli-noteList
@@ -149,8 +298,9 @@ div.rli-root
                 background: transparent !important
 
     div.rli-sideBar // lower sidebar (Notebooks, tag, sync, etc)
-        & > div
-            width: 100% !important
+        // & > div
+        //     width: 100% !important
+        // ^not sure why I did this
 
         .list-item-container
             padding-right: 1.25ch
